@@ -16,8 +16,9 @@
   --light-color: #e3e3e3;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --brand-color: #0067b8;
+  --link-color: var(--brand-color);
+  --link-hover-color: #005da6;;
 
   /* fonts */
   --body-font-family: 'Segoe UI', roboto, roboto-fallback, sans-serif;
@@ -164,7 +165,7 @@ button {
 /* links */
 a:any-link {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
   word-break: break-word;
 }
 
@@ -190,7 +191,7 @@ button {
   text-align: center;
   text-decoration: none;
   background-color: var(--link-color);
-  color: var(--background-color);
+  color: var(--brand-color);
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -208,6 +209,58 @@ button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
   cursor: unset;
+}
+
+
+a.button.primary,
+button.primary {
+  font-size: var(--body-font-size-xs);
+  padding: 10px 20px;
+  font-weight: 600;
+  max-width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 4px 8px 0 transparent;
+  white-space: nowrap;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.3;
+  letter-spacing: 0;
+  border: 2px solid transparent;
+  background: var(--brand-color);
+  border-radius: 0;
+  margin: 0;
+}
+
+a.button.primary::after,
+button.primary::after {
+  content: '';
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  background-image: url(/icons/right-arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  line-height: 1;
+  margin-left: 7px;
+  transition: right 200ms ease-in-out;
+}
+
+a.button.primary:hover::after,
+button.primary:hover::after {
+  right: -4px;
+}
+
+a.button.primary:hover,
+button.primary:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+  background: #005da6;
 }
 
 a.button.secondary,
